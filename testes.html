@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body onclick="printMousePos()">
+    <script>
+      function printMousePos(event) {
+        var cursorX = event.offsetX;
+        var cursorY = event.offsetY;
+        document.getElementById("coords").value =
+          "x: " + cursorX + ", y: " + cursorY;
+      }
+
+      document.addEventListener("click", printMousePos);
+    </script>
+
+    <iframe
+      src="http://zero.webappsecurity.com/index.html"
+      frameborder="0"
+      width="500px"
+      height="500px"
+    ></iframe>
+
+    <input type="text" id="coords" />
+    <button
+      id="button"
+      style="margin: 20px; width: 100px; height: 50px"
+      onclick="document.getElementById('button').innerHTML ='Clicked'"
+    >
+      Not Clicked
+    </button>
+
+    <select id="select" style="margin: 20px; width: 100px; height: 50px">
+      <option value="1">option1</option>
+      <option value="2">option2</option>
+      <option value="3">option3</option>
+      <option value="4">option4</option>
+    </select>
+
+
+    <button
+      id="buttonEnabled"
+      style="margin: 20px; width: 100px; height: 50px"
+    >
+      Button Enabled
+    </button>
+
+    <button
+      id="buttonDisabled"
+      style="margin: 20px; width: 100px; height: 50px"
+      disabled>
+      Button disabled
+    </button>
+
+    <button
+      id="buttonVisible"
+      style="margin: 20px; width: 100px; height: 50px"
+      >
+      Button visible
+    </button>
+
+    <button
+      id="buttonInvisible"
+      style="margin: 20px; width: 100px; height: 50px; visibility: hidden;"
+      disabled>
+      Button Invisible
+    </button>
+
+    <button
+      id="buttonText"
+      style="margin: 20px; width: 100px; height: 50px;"
+      >
+      Button Text
+    </button>
+
+    <input
+      id="inputText"
+      style="margin: 20px; width: 100px;"
+      >
+    </input>
+
+    <h1 class = "classOK">Placeholder Text</h1>
+  </body>
+</html>
