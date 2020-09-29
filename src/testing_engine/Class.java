@@ -67,7 +67,6 @@ public class Class {
 		
 		// runs each testCase
 		for (ArrayList<Action> arrayList : testCases) {
-			System.out.println(arrayList.get(0).getTestCaseRun());
 			
 			//checks if is to run the current testCase
 			if(arrayList.get(0).getTestCaseRun())

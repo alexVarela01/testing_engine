@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="jars/reports/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="jars/reports/bson-3.3.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/byte-buddy-1.7.5.jar"/>
+	<classpathentry kind="lib" path="jars/reports/cglib-nodep-3.2.4.jar"/>
+	<classpathentry kind="lib" path="jars/reports/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="jars/reports/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="jars/reports/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="jars/reports/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="jars/reports/commons-lang3-3.5.jar"/>
+	<classpathentry kind="lib" path="jars/reports/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="jars/reports/cssparser-0.9.22.jar"/>
+	<classpathentry kind="lib" path="jars/reports/extentreports-4.0.9.jar"/>
+	<classpathentry kind="lib" path="jars/reports/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="jars/reports/gson-2.8.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/gson-2.8.5.jar"/>
+	<classpathentry kind="lib" path="jars/reports/guava-23.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="jars/reports/htmlunit-2.26.jar"/>
+	<classpathentry kind="lib" path="jars/reports/htmlunit-core-js-2.26.jar"/>
+	<classpathentry kind="lib" path="jars/reports/htmlunit-driver-2.26.jar"/>
+	<classpathentry kind="lib" path="jars/reports/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="jars/reports/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="jars/reports/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="jars/reports/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="jars/reports/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="jars/reports/httpmime-4.5.3.jar"/>
+	<classpathentry kind="lib" path="jars/reports/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/jcommander-1.48.jar"/>
+	<classpathentry kind="lib" path="jars/reports/jetty-io-9.4.1.v20170120.jar"/>
+	<classpathentry kind="lib" path="jars/reports/jetty-util-9.4.1.v20170120.jar"/>
+	<classpathentry kind="lib" path="jars/reports/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="jars/reports/mongodb-driver-3.3.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/mongodb-driver-core-3.3.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/neko-htmlunit-2.25.jar"/>
+	<classpathentry kind="lib" path="jars/reports/phantomjsdriver-1.4.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/sac-1.3.jar"/>
+	<classpathentry kind="lib" path="jars/reports/selenium-server-standalone-3.6.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/serializer-2.7.2.jar"/>
+	<classpathentry kind="lib" path="jars/reports/testng-6.9.10.jar"/>
+	<classpathentry kind="lib" path="jars/reports/websocket-api-9.4.3.v20170317.jar"/>
+	<classpathentry kind="lib" path="jars/reports/websocket-client-9.4.3.v20170317.jar"/>
+	<classpathentry kind="lib" path="jars/reports/websocket-common-9.4.3.v20170317.jar"/>
+	<classpathentry kind="lib" path="jars/reports/xalan-2.7.2.jar"/>
+	<classpathentry kind="lib" path="jars/reports/xercesImpl-2.11.0.jar"/>
+	<classpathentry kind="lib" path="jars/reports/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="jars/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="jars/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="jars/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="lib" path="jars/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="jars/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="jars/guava-25.0-jre.jar"/>
+	<classpathentry kind="lib" path="jars/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="jars/okio-1.14.0.jar"/>
+	<classpathentry kind="lib" path="jars/poi-3.17.jar"/>
+	<classpathentry kind="lib" path="jars/poi-ooxml-3.17.jar"/>
+	<classpathentry kind="lib" path="jars/poi-ooxml-schemas-3.17.jar"/>
+	<classpathentry kind="lib" path="jars/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
