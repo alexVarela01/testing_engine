@@ -74,7 +74,7 @@ public class Class {
 				ExtentTest extentTest = extent.createTest(arrayList.get(0).getTestCaseCode() + " - " + arrayList.get(0).getTestCasePriority(), arrayList.get(0).getTestCaseName() );
 				
 				driver = launchBrowser(ExcelManager.getTestData(Settings.excelDataFilePath), extentTest);
-				System.out.println("---111111----" +" TestCase:" + arrayList.get(0).getTestCaseID() +  " -------");
+				System.out.println("-------" +" TestCase:" + arrayList.get(0).getTestCaseID() +  " -------");
 				Action.ExecuteList(arrayList, extentTest, strPath, driver);
 				
 		        //Close driver
@@ -86,9 +86,12 @@ public class Class {
 		extent.flush();
 		System.out.println("Tests Finished");
 		
+		String strPathEmail = strPath.substring(0, strPath.length() - 1);
+		SendEmail.send("alex.hilas05@gmail.com","varela.varela.varela01@gmail.com","Password.password123",strPathEmail,"Subject","Message");
+		
 		// Opens Final Report
-		File fileRlatorio = new File(extentReportFile);
-		Desktop.getDesktop().open(fileRlatorio);
+		//File fileRlatorio = new File(extentReportFile);
+		//Desktop.getDesktop().open(fileRlatorio);
     }
 	
 	/**
@@ -141,11 +144,11 @@ public class Class {
 	        driverTemp.manage().window().maximize();	//Maximize Window
 		}catch(IllegalStateException e) {
 			driverTemp = null;
-			System.out.println("Unknown Path or Package - Path:" + data.get("WebDriverPath") + " | Package:" + data.get("WebDriverPackage"));
+			System.out.println("Unknown Path or Package - Path:" + data.get("WebDriverPath") + " | Package:" + data.get("WebDriverPackage") +  "    --- " + e.getMessage());
 			System.exit(0);
 		}catch(Exception e) {
 			driverTemp = null;
-			System.out.println("Generic Exception: " + e.getStackTrace());
+			System.out.println("Generic Exception: " + e.getMessage());
 			System.exit(0);
 		}
 

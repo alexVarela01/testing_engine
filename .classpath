@@ -75,5 +75,9 @@
 	<classpathentry kind="lib" path="jars/poi-ooxml-3.17.jar"/>
 	<classpathentry kind="lib" path="jars/poi-ooxml-schemas-3.17.jar"/>
 	<classpathentry kind="lib" path="jars/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="jars/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="jars/zt-zip-1.8.jar"/>
+	<classpathentry kind="lib" path="jars/activation.jar"/>
+	<classpathentry kind="lib" path="jars/mail.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -13,6 +13,7 @@ import testing_engine.Action;
 import testing_engine.Class;
 import testing_engine.ExcelManager;
 import testing_engine.KeyWordsManager;
+import testing_engine.SendEmail;
 import testing_engine.Settings;
 import testing_engine.TSDAutomation;
 
@@ -24,6 +25,8 @@ import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.ITestResult;
+import org.testng.TestListenerAdapter;
+import org.testng.TestNG;
 import org.testng.annotations.*;
 import org.openqa.selenium.WebDriver;
 
@@ -38,8 +41,16 @@ public class TestLogic {
 	private static String strPath;
 
 	// path
-	private static String baseUrl = "INSERT FULL PATH TO testes.html HERE";
+	private static String baseUrl = "file:///C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/UmNomeQualquer/testes.html";
 
+	public static void main(String[] args) {
+        TestListenerAdapter tla = new TestListenerAdapter();
+        TestNG testng = new TestNG();
+        testng.setTestClasses(new java.lang.Class[] {TestLogic.class});
+        testng.addListener(tla);
+        testng.run();
+    } 
+	
 	/**
 	 * Initializes the browser before the tests start
 	 */
@@ -873,5 +884,7 @@ public class TestLogic {
 	public static void FinalizeBrowser() {
 		driver.close(); // Closes browser
 		extent.flush();
+		String strPathEmail = strPath.substring(0, strPath.length() - 1);
+		SendEmail.send("alex.hilas05@gmail.com","varela.varela.varela01@gmail.com","Password.password123",strPathEmail,"Subject","Message");
 	}
 }
