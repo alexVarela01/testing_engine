@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -166,18 +168,15 @@ public class ExcelManager {
 		 	}  
 			
 			try {
-				File myObj = new File("email.txt");
-			    Scanner myReader = new Scanner(myObj);
-			    while (myReader.hasNextLine()) {
-			       String data = myReader.nextLine();
-			       actionList.add(new HashMap<String, String>(){{
-			    	   put("email", data);
-			       }});
-			    }
+				String line0 = Files.readAllLines(Paths.get("email.txt")).get(0); 
 			    
-			    myReader.close();
+		       System.out.println(line0);
+		       actionList.add(new HashMap<String, String>(){{
+		    	   put("email", line0);
+		       }});
+			    
 			}catch(Exception e) {
-				
+				System.out.println(e.getMessage());
 			}
 		    
 		} catch (FileNotFoundException e) {

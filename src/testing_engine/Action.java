@@ -273,6 +273,8 @@ public class Action implements java.io.Serializable{
                     }else {
                         extentTest.log(Status.FAIL,"Step "+ stepN + ": " +keywords.result);
                     }
+                    
+                    TSDAutomation.takeScreenshot(driver, strPath);
                 }
 				
 			}

@@ -1018,6 +1018,7 @@ public class KeyWordsManager {
      */
     public void LoginKnowler(WebDriver driverTemp) {
     	Navigate("", driverTemp);
+    	WaitForElement(driverTemp, "//*[@id=\"userNameInput\"]", 10);
     	Set("//*[@id=\"userNameInput\"]", "", driverTemp);
     	Set("//*[@id=\"passwordInput\"]", "", driverTemp);
     	Click(driverTemp, "//*[@id=\"submitButton\"]");
