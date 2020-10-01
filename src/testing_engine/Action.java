@@ -252,6 +252,10 @@ public class Action implements java.io.Serializable{
                     case Constants.InteractDynamicValue:
                         keywords.InteractDynamicValue(driver, actionObject.getAttributeName(), actionObject.getAttributeValue());
                         break;
+                        
+                    case Constants.LoginKnowler:
+                        keywords.LoginKnowler(driver);
+                        break;
                        
                     default:
                         keywords.result = "Invalid Action";        //Unsuccessful message

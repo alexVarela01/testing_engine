@@ -1010,4 +1010,135 @@ public class KeyWordsManager {
             return null;        //Returns values
         }
     }
+    
+    
+    /**
+     * Makes a login with Hilario's credentials on everis knowler
+     * @param driverTemp
+     */
+    public void LoginKnowler(WebDriver driverTemp) {
+    	Navigate("https://knowler.everis.com/", driverTemp);
+    	Set("//*[@id=\"userNameInput\"]", "alexandre.lopes.hilario.st@everis.com", driverTemp);
+    	Set("//*[@id=\"passwordInput\"]", "sY5C4Y4U1m", driverTemp);
+    	Click(driverTemp, "//*[@id=\"submitButton\"]");
+    	WaitForElement(driverTemp, "//*[@id=\"differentVerificationOption\"]");
+    	Click(driverTemp, "//*[@id=\"differentVerificationOption\"]");
+    	WaitForElement(driverTemp, "//*[@id=\"verificationOption2\"]");
+    	Click(driverTemp, "//*[@id=\"verificationOption2\"]");
+    	
+    	Boolean isNoNoQuestion = false;
+    	
+    	do {
+    		isNoNoQuestion = false;
+    		
+    		switch(driverTemp.findElement(By.xpath("//*[@id=\"question1\"]")).getText()) {
+	    	case "What is your favorite pet's name?":
+	    		Set("//*[@id=\"answer1Input\"]", "Becas", driverTemp);
+	    		break;
+	    		
+	    	case "What is your favorite meal?":
+	    		Set("//*[@id=\"answer1Input\"]", "Francesinha", driverTemp);
+	    		break;
+	    		
+	    	case "What was the name of your school?":
+	    		Set("//*[@id=\"answer1Input\"]", "ESFD", driverTemp);
+	    		break;
+	    		
+	    	case "What is your favorite sports team?":
+	    		isNoNoQuestion = true;
+	    		break;
+	    	}
+	    	
+	    	switch(driverTemp.findElement(By.xpath("//*[@id=\"question2\"]")).getText()) {
+	    	case "What is your favorite pet's name?":
+	    		Set("//*[@id=\"answer2Input\"]", "Becas", driverTemp);
+	    		break;
+	    		
+	    	case "What is your favorite meal?":
+	    		Set("//*[@id=\"answer2Input\"]", "Francesinha", driverTemp);
+	    		break;
+	    		
+	    	case "What was the name of your school?":
+	    		Set("//*[@id=\"answer2Input\"]", "ESFD", driverTemp);
+	    		break;
+	    		
+	    	case "What is your favorite sports team?":
+	    		isNoNoQuestion = true;
+	    		break;
+	    	}
+	    	
+	    	
+	    	if(isNoNoQuestion) {
+	    		driverTemp.navigate().refresh();
+	    	}
+    	}while(isNoNoQuestion);
+    	
+    	Click(driverTemp, "//*[@id=\"authenticateButton\"]");
+    	
+		 Check(driverTemp, null, "url", "https://knowler.everis.com/onboarding");
+	     
+	     if(passou) {
+	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[2]/div/div/div[1]/div[3]/div[1]/label");
+	         WebElement element = driverTemp.findElement(By.id("my-id"));
+	         Actions actions = new Actions(driverTemp);
+	         actions.moveToElement(element);
+	         actions.perform();
+	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[3]/div[3]/button");
+	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[2]/div/div/div[1]/div[3]/div[2]/label");
+	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/evc-modal/div/evc-draggable/div/div/div/button/span");
+	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[2]/div/div/div[3]/button");
+	     }
+    	
+    	
+    	result = "Login Sucessfull";
+    	passou = true;
+    	
+    }
+    
+    
+    
+    
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

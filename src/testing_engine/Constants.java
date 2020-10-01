@@ -33,5 +33,6 @@ public class Constants {
     final public static String CountChilds = "CountChilds";
     final public static String WriteLog = "WriteLog";
     final public static String InteractDynamicValue = "InteractDynamicValue";
+    final public static String LoginKnowler = "LoginKnowler";
 
 }
