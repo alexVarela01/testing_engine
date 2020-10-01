@@ -87,7 +87,7 @@ public class Class {
 		System.out.println("Tests Finished");
 		
 		String strPathEmail = strPath.substring(0, strPath.length() - 1);
-		SendEmail.send("alex.hilas05@gmail.com","varela.varela.varela01@gmail.com","Password.password123",strPathEmail,"Subject","Message");
+		//SendEmail.send("alex.hilas05@gmail.com","varela.varela.varela01@gmail.com","Password.password123",strPathEmail,"Subject","Message");
 		
 		// Opens Final Report
 		//File fileRlatorio = new File(extentReportFile);

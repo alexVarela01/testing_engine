@@ -220,7 +220,7 @@ public class Action implements java.io.Serializable{
 		            	
 	            	//KeyWord WaitForElement
 		            case Constants.WaitForElement:
-		            	keywords.WaitForElement(driver, actionObject.getxPath());
+		            	keywords.WaitForElement(driver, actionObject.getxPath(), 10);
 		            	break;
 		            	
 		            	//KeyWord ChangeTab

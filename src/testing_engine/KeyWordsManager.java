@@ -204,10 +204,10 @@ public class KeyWordsManager {
      * @param driverTemp
      * @param xPath
      */
-    public void WaitForElement(WebDriver driverTemp, String xPathTemp) {
+    public void WaitForElement(WebDriver driverTemp, String xPathTemp, int timeout) {
     	try {
     		//waits for the element to load
-    		WebDriverWait wait = new WebDriverWait(driverTemp, 10);
+    		WebDriverWait wait = new WebDriverWait(driverTemp, timeout);
         	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xPathTemp)));
     		result = "WaitForElement with xPath " + xPathTemp+ " successfull.";		
     	}catch(TimeoutException e) {
@@ -440,7 +440,7 @@ public class KeyWordsManager {
 	        			result = "Check URL " + attributeValueTemp + " sucessfull. The input url matches with current url.";
 	        		}else {
 	        			passou = false;
-	        			result = "Check URL " + attributeValueTemp + " unsucessfull. The input url doesn't matches with current url.";
+	        			result = "Check URL " + attributeValueTemp + " unsucessfull. The input url doesn't matches with current url("+driverTemp.getCurrentUrl()+")";
 	        		}
 	        		
 		        	break;
@@ -1017,13 +1017,13 @@ public class KeyWordsManager {
      * @param driverTemp
      */
     public void LoginKnowler(WebDriver driverTemp) {
-    	Navigate("https://knowler.everis.com/", driverTemp);
-    	Set("//*[@id=\"userNameInput\"]", "alexandre.lopes.hilario.st@everis.com", driverTemp);
-    	Set("//*[@id=\"passwordInput\"]", "sY5C4Y4U1m", driverTemp);
+    	Navigate("", driverTemp);
+    	Set("//*[@id=\"userNameInput\"]", "", driverTemp);
+    	Set("//*[@id=\"passwordInput\"]", "", driverTemp);
     	Click(driverTemp, "//*[@id=\"submitButton\"]");
-    	WaitForElement(driverTemp, "//*[@id=\"differentVerificationOption\"]");
+    	WaitForElement(driverTemp, "//*[@id=\"differentVerificationOption\"]", 10);
     	Click(driverTemp, "//*[@id=\"differentVerificationOption\"]");
-    	WaitForElement(driverTemp, "//*[@id=\"verificationOption2\"]");
+    	WaitForElement(driverTemp, "//*[@id=\"verificationOption2\"]", 10);
     	Click(driverTemp, "//*[@id=\"verificationOption2\"]");
     	
     	Boolean isNoNoQuestion = false;
@@ -1074,12 +1074,13 @@ public class KeyWordsManager {
     	}while(isNoNoQuestion);
     	
     	Click(driverTemp, "//*[@id=\"authenticateButton\"]");
+    	WaitForElement(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[2]/div/div/div[1]/div[3]/div[1]/label", 10);
+    	Check(driverTemp, null, "url", "https://knowler.everis.com/onboarding");
+    	System.out.println(result);
     	
-		 Check(driverTemp, null, "url", "https://knowler.everis.com/onboarding");
-	     
-	     if(passou) {
+    	if(passou) {
 	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[2]/div/div/div[1]/div[3]/div[1]/label");
-	         WebElement element = driverTemp.findElement(By.id("my-id"));
+	         WebElement element = driverTemp.findElement(By.xpath("/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[3]/div[2]/div[9]/p/p/span"));
 	         Actions actions = new Actions(driverTemp);
 	         actions.moveToElement(element);
 	         actions.perform();
@@ -1087,9 +1088,12 @@ public class KeyWordsManager {
 	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[2]/div/div/div[1]/div[3]/div[2]/label");
 	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/evc-modal/div/evc-draggable/div/div/div/button/span");
 	         Click(driverTemp, "/html/body/main/skmo-app-root/div/div/div/skmo-onboarding-noknowler/div/div/div[2]/div/div/div[3]/button");
-	     }
+    	}
     	
-    	
+    	WaitForElement(driverTemp, "//*[@id=\"search-input\"]", 10);
+    	Check(driverTemp, null, "url", "https://knowler.everis.com/home");
+    	WaitForElement(driverTemp, "//*[@id=\"search-input\"]", 5);
+    	Click(driverTemp, "/html/body/main/skmo-app-root/skmo-banner/div/div[2]/button");
     	result = "Login Sucessfull";
     	passou = true;
     	

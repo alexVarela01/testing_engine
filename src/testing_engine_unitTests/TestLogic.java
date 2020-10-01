@@ -172,7 +172,7 @@ public class TestLogic {
 	 */
 	@Test
 	public void testWaitForElementNull() {
-		keywords.WaitForElement(driver, null); // Click method
+		keywords.WaitForElement(driver, null,10); // Click method
 		Assert.assertEquals(false, keywords.passou); // Verify if the method succeeded
 	}
 
@@ -181,7 +181,7 @@ public class TestLogic {
 	 */
 	@Test
 	public void testWaitForElementSuccess() {
-		keywords.WaitForElement(driver, "//*[@id=\"button\"]"); // Click method
+		keywords.WaitForElement(driver, "//*[@id=\"button\"]", 10); // Click method
 		Assert.assertEquals(true, keywords.passou); // Verify if the method succeeded
 	}
 
@@ -190,7 +190,7 @@ public class TestLogic {
 	 */
 	@Test
 	public void testWaitForElementFailure() {
-		keywords.WaitForElement(driver, "//*[@id=\"button\"]xxx"); // Click method
+		keywords.WaitForElement(driver, "//*[@id=\"button\"]xxx", 10); // Click method
 		Assert.assertEquals(false, keywords.passou); // Verify if the method succeeded
 	}
 
