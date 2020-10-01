@@ -2,6 +2,8 @@ package testing_engine;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -19,7 +21,7 @@ import org.zeroturnaround.zip.ZipUtil;
 
 public class SendEmail {
 	
-	public static void send(String to,String from,String password, String reportPath, String subjectText, String messageText) {
+	public static void send(ArrayList<HashMap<String, String>> emailList, String from, String password, String reportPath, String subjectText, String messageText) {
 
         // Assuming you are sending email from through gmails smtp
         String host = "smtp.gmail.com";
@@ -53,7 +55,9 @@ public class SendEmail {
             message.setFrom(new InternetAddress(from));
 
             // Set To: header field of the header.
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            for (HashMap<String, String> email : emailList) {
+            	message.addRecipient(Message.RecipientType.TO, new InternetAddress(email.get("email")));
+			}
 
             // Set Subject: header field
             message.setSubject(subjectText);

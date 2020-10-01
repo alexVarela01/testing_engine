@@ -124,6 +124,59 @@ public class ExcelManager {
 		if(hash.size() == 0) hash = null;
 		return hash;	//returns hash
 	}
+ 	
+ 	/**
+	 * Gets all actions data
+	 * @param path excel file path
+	 * @return test data
+	 */
+	public static ArrayList<HashMap<String,String>> getEmailData(String path) throws IOException {
+		
+		//actions list
+		ArrayList<HashMap<String,String>> actionList = new ArrayList<HashMap<String,String>>();
+
+		try  
+		{  
+			File file = new File(path);   						//creating a new file instance  
+			FileInputStream fis = new FileInputStream(file);   	//obtaining bytes from the file  
+			
+			//creating Workbook instance that refers to .xlsx file  
+			XSSFWorkbook wb = new XSSFWorkbook(fis);   
+			XSSFSheet sheet = wb.getSheetAt(2);     			//creating a Sheet object to retrieve object  
+			Iterator<Row> itr = sheet.iterator();    			//iterating over excel file  
+			itr.next();
+			
+			// while there's a next cell
+			while (itr.hasNext()){  
+				
+				//gets row
+				ArrayList<HashMap<String,String>> listTemp = getCellsData(itr, sheet);
+				actionList.add(new HashMap<String, String>() {{ 
+					for(int i = 0; i < listTemp.size();i++) {
+						HashMap<String,String> tempHash = listTemp.get(i);
+						HashMap.Entry<String,String> entry = tempHash.entrySet().iterator().next();
+						put(entry.getKey(), entry.getValue());
+					}
+				}});
+				
+				// closes file
+				wb.close();
+				fis.close();
+		 	}  
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found.");
+		} catch(IOException e)  {  
+			System.out.println("IOException.");
+		} catch(Exception e)  {  
+			System.out.println("Generic Exception. " + e.getMessage()); 
+		} 
+		
+		for (HashMap<String, String> hashMap : actionList) {
+			System.out.println(hashMap);
+		}
+		
+		return actionList;	//returns action list
+	}
 
 	/**
 	 * Gets all actions data

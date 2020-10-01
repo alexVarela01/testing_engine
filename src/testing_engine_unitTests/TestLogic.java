@@ -18,6 +18,8 @@ import testing_engine.Settings;
 import testing_engine.TSDAutomation;
 
 import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -879,12 +881,15 @@ public class TestLogic {
 
 	/**
 	 * Finalizes the browser
+	 * @throws IOException 
 	 */
 	@AfterClass
-	public static void FinalizeBrowser() {
+	public static void FinalizeBrowser() throws IOException {
 		driver.close(); // Closes browser
 		extent.flush();
 		String strPathEmail = strPath.substring(0, strPath.length() - 1);
-		SendEmail.send("alex.hilas05@gmail.com","varela.varela.varela01@gmail.com","Password.password123",strPathEmail,"Subject","Message");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+		LocalDateTime now = LocalDateTime.now();  
+		SendEmail.send(ExcelManager.getEmailData(Settings.excelDataFilePath),"","",strPathEmail,"Relatório Testes Unitários" + dtf.format(now),"Relatório de testes realizados no dia " + dtf.format(now));
 	}
 }

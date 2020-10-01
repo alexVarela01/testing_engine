@@ -1,6 +1,7 @@
 package testing_engine;
 import java.awt.Desktop;
 import java.io.File;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -87,7 +88,9 @@ public class Class {
 		System.out.println("Tests Finished");
 		
 		String strPathEmail = strPath.substring(0, strPath.length() - 1);
-		//SendEmail.send("alex.hilas05@gmail.com","varela.varela.varela01@gmail.com","Password.password123",strPathEmail,"Subject","Message");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+		LocalDateTime now = LocalDateTime.now();  
+		SendEmail.send(ExcelManager.getEmailData(Settings.excelDataFilePath),"","",strPathEmail,"Relatório Testes " + dtf.format(now),"Relatório de testes realizados no dia " + dtf.format(now));
 		
 		// Opens Final Report
 		//File fileRlatorio = new File(extentReportFile);
