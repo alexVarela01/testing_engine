@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -163,6 +164,24 @@ public class ExcelManager {
 				wb.close();
 				fis.close();
 		 	}  
+			
+			try {
+				File myObj = new File("email.txt");
+			    Scanner myReader = new Scanner(myObj);
+			    while (myReader.hasNextLine()) {
+			       String data = myReader.nextLine();
+			       actionList.add(new HashMap<String, String>(){{
+			    	   put("email", data);
+			       }});
+			    }
+			}catch(Exception e) {
+				
+			}
+			
+			
+		    
+		    myReader.close();
+		    
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found.");
 		} catch(IOException e)  {  
