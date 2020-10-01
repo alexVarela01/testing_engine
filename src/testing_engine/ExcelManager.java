@@ -174,13 +174,11 @@ public class ExcelManager {
 			    	   put("email", data);
 			       }});
 			    }
+			    
+			    myReader.close();
 			}catch(Exception e) {
 				
 			}
-			
-			
-		    
-		    myReader.close();
 		    
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found.");
