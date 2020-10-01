@@ -24,7 +24,7 @@ import org.openqa.selenium.opera.OperaDriver;
 
 public class Class {
 	
-	public static WebDriver webdriver;
+	public static WebDriver driver;
 	public static int timeoutInSeconds;
 	public static WebElement element;
 	public static String elementXpath;
@@ -35,7 +35,11 @@ public class Class {
 	
 	
 	public static void main(String[] args) throws Exception {
-		WebDriver driver = null;
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+	        public void run() {
+	        	driver.quit();
+	        }
+	    }, "Shutdown-thread"));
 		
 		ZonedDateTime dateTime = ZonedDateTime.now();
 		String executionDateTime;
@@ -83,6 +87,9 @@ public class Class {
 			}
 		}
 		
+		
+		
+		
 		//finishes the report
 		extent.flush();
 		System.out.println("Tests Finished");
@@ -90,12 +97,16 @@ public class Class {
 		String strPathEmail = strPath.substring(0, strPath.length() - 1);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
 		LocalDateTime now = LocalDateTime.now();  
-		SendEmail.send(ExcelManager.getEmailData(Settings.excelDataFilePath),"","",strPathEmail,"Relatório Testes " + dtf.format(now),"Relatório de testes realizados no dia " + dtf.format(now));
+		SendEmail.send(ExcelManager.getEmailData(Settings.excelDataFilePath),"varela.varela.varela01@gmail.com","Password.password123",strPathEmail,"Relatório Testes " + dtf.format(now),"Relatório de testes realizados no dia " + dtf.format(now));
 		
 		// Opens Final Report
 		//File fileRlatorio = new File(extentReportFile);
 		//Desktop.getDesktop().open(fileRlatorio);
+		
+		
     }
+	
+	
 	
 	/**
 	 * Launches Browser

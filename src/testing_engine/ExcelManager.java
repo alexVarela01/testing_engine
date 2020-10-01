@@ -170,13 +170,11 @@ public class ExcelManager {
 			try {
 				String line0 = Files.readAllLines(Paths.get("email.txt")).get(0); 
 			    
-		       System.out.println(line0);
 		       actionList.add(new HashMap<String, String>(){{
 		    	   put("email", line0);
 		       }});
 			    
 			}catch(Exception e) {
-				System.out.println(e.getMessage());
 			}
 		    
 		} catch (FileNotFoundException e) {

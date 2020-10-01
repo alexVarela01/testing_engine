@@ -1017,10 +1017,10 @@ public class KeyWordsManager {
      * @param driverTemp
      */
     public void LoginKnowler(WebDriver driverTemp) {
-    	Navigate("", driverTemp);
+    	Navigate("https://knowler.everis.com/", driverTemp);
     	WaitForElement(driverTemp, "//*[@id=\"userNameInput\"]", 10);
-    	Set("//*[@id=\"userNameInput\"]", "", driverTemp);
-    	Set("//*[@id=\"passwordInput\"]", "", driverTemp);
+    	Set("//*[@id=\"userNameInput\"]", "alexandre.lopes.hilario.st@everis.com", driverTemp);
+    	Set("//*[@id=\"passwordInput\"]", "sY5C4Y4U1m", driverTemp);
     	Click(driverTemp, "//*[@id=\"submitButton\"]");
     	WaitForElement(driverTemp, "//*[@id=\"differentVerificationOption\"]", 10);
     	Click(driverTemp, "//*[@id=\"differentVerificationOption\"]");
